@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Home from '../views/Home.vue';
+import FetchApi from '@/views/fetch-api/fetch-api.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'Home',
     component: Home,
+  },
+  {
+    path: '/fetch-api',
+    name: 'FetchApi',
+    component: FetchApi,
   },
   // {
   //   path: "/about",
