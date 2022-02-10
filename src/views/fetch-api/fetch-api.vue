@@ -1,25 +1,20 @@
 <template lang="pug">
-.wrap 我最厉害
+.wrap 
+  URLInterface
+  .result 
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
 import { logFunc } from '@/util/decorators/logFunc.decorator';
+import URLInterface from './url-interface.vue';
 
 @Options({
-  components: {},
+  components: { URLInterface },
 })
 export default class FetchApi extends Vue {
   async created(): Promise<void> {
-    // fetch('www.example.com').then((response) => {
-    //   console.log(response);
-    //   console.log(response.headers);
-    //   return response.body;
-    // });
-
     await this.basicFetch();
-
-    this.syncFunc();
   }
 
   // basic usage(with string)
@@ -34,11 +29,6 @@ export default class FetchApi extends Vue {
         console.log(json);
         return json;
       });
-  }
-
-  @logFunc()
-  syncFunc(): void {
-    console.log('我是一个syncFunc');
   }
 }
 </script>
