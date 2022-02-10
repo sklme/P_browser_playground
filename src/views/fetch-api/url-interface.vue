@@ -22,13 +22,14 @@ export default class URLInterface extends Vue {
     this.testUrlSearchParams();
   }
 
-  log(str: any): void {
+  log(str: unknown): void {
     console.log('log:', str);
     if (typeof str === 'string') {
       this.renderStr = this.renderStr + str + '<br>';
     } else {
-      if (str.toString) {
-        this.renderStr += str.toString() + '<br>';
+      if ((str as { toString?: () => unknown }).toString) {
+        this.renderStr +=
+          (str as { toString: () => unknown }).toString() + '<br>';
       } else {
         this.renderStr += JSON.stringify(str) + '<br>';
       }
