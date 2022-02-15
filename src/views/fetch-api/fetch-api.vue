@@ -1,6 +1,7 @@
 <template lang="pug">
 .wrap 
   URLInterface
+  RequestInterface
   .result 
 </template>
 
@@ -8,9 +9,10 @@
 import { Options, Vue } from 'vue-class-component';
 import { logFunc } from '@/util/decorators/logFunc.decorator';
 import URLInterface from './url-interface.vue';
+import RequestInterface from './request-interface.vue';
 
 @Options({
-  components: { URLInterface },
+  components: { URLInterface, RequestInterface },
 })
 export default class FetchApi extends Vue {
   async created(): Promise<void> {
