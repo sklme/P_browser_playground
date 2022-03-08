@@ -52,16 +52,18 @@ export default class RequestInterface extends LogVue {
     headers.append('Content-Type', 'image/jpeg');
 
     const myInit: RequestInit = {
-      method: 'GET',
+      method: 'POST',
       headers: headers,
       mode: 'cors',
       cache: 'default',
+      body: '12',
     };
 
     var myRequest = new Request(
-      'https://res.wx.qq.com/t/fed_upload/02a4a6d0-71b7-4c48-b8e4-8af9ff50b936/done.svg',
+      'https://api.isoyu.com/api/News/new_list?type=1&page=2',
       myInit,
     );
+
     fetch(myRequest).then((res) => {
       console.log(res);
     });
